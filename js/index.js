@@ -1,11 +1,11 @@
 // Your code goes here
 
 // My Selectors
-//entire header nav
+//header 
 const mainNav = document.querySelector('.main-navigation')
+//nav buttons
+const navLinks = document.querySelector('a')
 
-//entire body
-const body = document.body.querySelector('.home')
 
 // footer
 const footer = document.querySelector('.footer')
@@ -16,31 +16,36 @@ const image = document.querySelector('.img')
 
 // text content
 const textContent = document.querySelector('.text')
+const contentSection = document.querySelector('.section')
 
 // My Color Changing With 'mouseenter'
 mainNav.addEventListener('mouseenter', event => {
     event.target.style.backgroundColor = 'pink'
+    event.target.style.color = 'white'
 })
+navLinks.addEventListener('mouseenter', event => {
+    event.target.style.backgroundColor = 'pink'
+    event.target.style.color = 'white'
+})
+// contentSection.addEventListener('mouseenter', event => {
+//     event.target.style.backgroundColor = 'pink'
+//     event.target.style.color = 'white'
+// })
 //My Color Changing With 'mouseleave'
 mainNav.addEventListener('mouseleave', event => {
     event.target.style.backgroundColor = 'white'
+    event.target.style.color = 'black'
+})
+navLinks.addEventListener('mouseenter', event => {
+    event.target.style.backgroundColor = 'white'
+    event.target.style.color = 'black'
 })
 
 // keydown
 
-//mousemove
-// textContent.addEventListener('mousemove', event => {
-//     event.target.style.color = 'pink'
-// })
+// wheel
 
-//load
-footer.addEventListener('load', event => {
-    event.target.style.backgroundColor = 'white'
-})
-//scroll
-body.addEventListener('scroll', event =>{
-    event.target.style.backgroundColor = 'pink'
-})
+
 //resize
 
 //select
@@ -56,4 +61,11 @@ footer.addEventListener('mouseover', event => {
 footer.addEventListener('mouseout', event => {
     event.target.style.backgroundColor = 'white'
     event.target.style.color = 'black'
+})
+
+//Stop the navigation items from refreshing the page by using `preventDefault()`
+Array.from(document.links).forEach(function(link){
+    link.addEventListener('click', function (event) {
+        event.preventDefault()
+    })
 })
