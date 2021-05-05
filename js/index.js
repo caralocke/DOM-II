@@ -11,6 +11,8 @@ const mainNav = document.querySelector('.main-navigation')
 const navLinks = document.querySelector('nav')
 //top section
 const topSection = document.querySelector('.intro')
+//top bus picture
+const busImage = document.querySelector('.intro img')
 
 // footer
 const footer = document.querySelector('.footer')
@@ -63,22 +65,29 @@ Array.from(document.links).forEach(function(link){
         event.preventDefault()
     })
 })
+busImage.addEventListener('click', (event) => {
+    document.body.style.backgroundColor = 'pink'
+})
 
-//  6) focus
+// 6) dblclick
+busImage.addEventListener('dblclick', (event) => {
+    document.body.style.backgroundColor = 'initial'
+})
+//  7) focus
 topSection.addEventListener('focus', (event) => {
     event.target.style.background = 'pink'
 })
 
-// keydown
+
 
 // 8) wheel
 window.addEventListener('wheel', function() {
     document.body.style.color = 'pink'
 })
 
-//resize
+// 9) resize
 
-//select
+// 10) select
 
 
 //Helper functions to make some of the code more readable
