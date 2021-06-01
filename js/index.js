@@ -7,7 +7,12 @@ const subTitles = document.querySelectorAll('h2')
 const explanation = document.querySelectorAll('p')
 const title = document.querySelector('h1')
 
-title.addEventListener('')
+title.addEventListener('mouseover', event => {
+    title.style.color = 'cyan'
+})
+title.addEventListener('mouseout', event => {
+    title.style.color = 'initial'
+})
 
 mainNav.addEventListener('mouseenter', event => {
     event.target.style.backgroundColor = 'pink'
@@ -54,7 +59,26 @@ intro.addEventListener('dblclick', event => {
     event.target.style.backgroundColor = 'initial'
     event.target.style.color = 'initial'
 })
-console.log(subTitles)
-document.addEventListener('scroll', event => {
-    subTitles.textContent.style.color = 'pink'
+
+//scroll to change paragraphs to pink
+Array.from(explanation).forEach(paragraph => {
+    paragraph.addEventListener('scroll', event => {
+        event.target.style.color = 'pink'
+    })
+})
+
+//keydown - creating a function that resets the page if the user hits the escape key anywhere on the page
+
+// function clearPage(event) {
+//     if (event.keyCode === 27) {
+//         document.textContent.style.color = 'black'
+//         document.style.backgroundColor = 'white'
+//     }
+// }
+
+//Stop the navigation items from refreshing the page
+Array.from(document.links).forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault()
+    })
 })
